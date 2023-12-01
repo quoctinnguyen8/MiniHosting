@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiniHosting.Data;
 
 namespace MiniHosting.Data.Migrations
 {
     [DbContext(typeof(WebAppDbContext))]
-    partial class WebAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231201165642_add-table-appuserwebsite")]
+    partial class addtableappuserwebsite
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -220,14 +222,6 @@ namespace MiniHosting.Data.Migrations
                             CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             MstPermissionId = 1205,
                             UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 15,
-                            AppRoleId = 1,
-                            CreatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            MstPermissionId = 1301,
-                            UpdatedDate = new DateTime(2021, 12, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -337,7 +331,7 @@ namespace MiniHosting.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CSharpInternalPort")
+                    b.Property<int>("CSharpInternalPort")
                         .HasColumnType("int");
 
                     b.Property<int?>("CreatedBy")
@@ -564,15 +558,6 @@ namespace MiniHosting.Data.Migrations
                             Desc = "Quản lý file hệ thống",
                             GroupName = "Quản lý file",
                             Table = "FileManager"
-                        },
-                        new
-                        {
-                            Id = 1301,
-                            Code = "MANAGER",
-                            CreatedDate = new DateTime(2023, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Quản lý toàn bộ site",
-                            GroupName = "Quản lý website",
-                            Table = "AppUserWebsite"
                         });
                 });
 

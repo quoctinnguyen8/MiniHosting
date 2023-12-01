@@ -16,6 +16,7 @@ namespace MiniHosting.Data
 		public DbSet<AppRolePermission> AppRolePermissions { get; set; }
 		public DbSet<AppUser> AppUsers { get; set; }
 		public DbSet<MstPermission> MstPermissions { get; set; }
+		public DbSet<AppUserWebsite> AppUserWebsites { get; set; }
 
 		public WebAppDbContext(DbContextOptions options) : base(options)
 		{
@@ -26,6 +27,7 @@ namespace MiniHosting.Data
 			modelBuilder.ApplyConfiguration(new AppRoleConfig());
 			modelBuilder.ApplyConfiguration(new AppRolePermissionConfig());
 			modelBuilder.ApplyConfiguration(new MstPermissionConfig());
+			modelBuilder.ApplyConfiguration(new AppUserWebsiteConfig());
 
 			// Tạo dữ liệu
 			modelBuilder.Entity<MstPermission>().SeedData();

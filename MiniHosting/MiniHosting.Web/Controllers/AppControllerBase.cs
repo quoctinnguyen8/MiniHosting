@@ -17,7 +17,7 @@ namespace MiniHosting.Web.Controllers
 {
 	public class AppControllerBase : Controller
 	{
-		protected const int DEFAULT_PAGE_SIZE = 15;
+		protected const int DEFAULT_PAGE_SIZE = 20;
 		protected const string EXCEPTION_ERR_MESG = "Đã xảy ra lỗi trong quá trình xử lý dữ liệu (500)";
 		protected const string MODEL_STATE_INVALID_MESG = "Dữ liệu không hợp lệ, vui lòng kiểm tra lại";
 		protected const string PAGE_NOT_FOUND_MESG = "Không tìm thấy trang";

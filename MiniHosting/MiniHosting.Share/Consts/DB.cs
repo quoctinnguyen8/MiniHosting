@@ -37,5 +37,13 @@ namespace MiniHosting.Share.Consts
 			public const short GROUPNAME_LENGTH				= 100;
 			public const short DESC_LENGTH					= 100;
 		}
+		public static class AppUserWebsite
+		{
+			public const string TABLE_NAME					= "AppUserWebsite";
+			public const short DOMAIN_LENGTH				= 50;
+			public const short SITENAME_LENGTH				= 100;
+			public const short PATH_LENGTH					= 200;
+			public const short DESC_LENGTH					= 200;
+		}
 	}
 }

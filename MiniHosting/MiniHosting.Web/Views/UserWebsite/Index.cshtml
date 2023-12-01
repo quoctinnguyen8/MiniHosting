@@ -1,0 +1,112 @@
+﻿@model IEnumerable<MiniHosting.Web.ViewModels.UserWebsite.WebsiteListItemVM>
+
+@{
+	ViewData["Title"] = "Danh sách trang web";
+}
+
+
+<div class="my-2">
+	<a asp-action="Create" class="btn btn-primary">
+		<i class="fas fa-plus-circle"></i> &nbsp; Thêm trang web
+	</a>
+</div>
+
+
+<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Thông tin</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td class="fit">@item.RowIndex</td>
+					<td>
+						@if (item.SourceCodeType == SourceCodeType.CSHARP_NET5 || item.SourceCodeType == SourceCodeType.CSHARP_NET7)
+						{
+							if (item.SourceCodeType == SourceCodeType.CSHARP_NET5)
+							{
+								<img src="~/icons/csharp.png" class="fa-fw object-fit-cover" title=".NET5" />
+							}
+							else
+							{
+								<img src="~/icons/csharp.png" class="fa-fw object-fit-cover" title=".NET7" />
+							}
+						}
+						else if (item.SourceCodeType == SourceCodeType.PHP || item.SourceCodeType == SourceCodeType.HTML)
+						{
+							if (item.SourceCodeType == SourceCodeType.PHP)
+							{
+								<i class="fab fa-fw fa-php text-primary"></i>
+							}
+							else
+							{
+								<i class="fab fa-fw fa-html5 text-danger"></i>
+							}
+						}
+						else
+						{
+							<i class="fas fa-bug text-danger" title="Lỗi dữ liệu, hãy liên hệ admin"></i>
+						}
+						<span class="px-2">@item.SiteName</span>
+						@if (!item.Domain.IsNullOrEmpty())
+						{
+							<a href="@item.Domain" target="_blank" class="badge badge-secondary" title="Mở trang web">@item.Domain <i class="fas fa-external-link-alt"></i></a>
+							@if (!item.IsTurnOnSSL)
+							{
+								<i class="fas fa-exclamation-triangle text-warning" title="Trang web chưa có SSL"></i>
+							}
+							if (item.IsActive)
+							{
+								<i class="fas fa-globe text-success" title="Trạng thái: đang hoạt động"></i>
+							}
+							else
+							{
+								<i class="fas fa-globe text-secondary" title="Trạng thái: tạm dừng"></i>
+							}
+						}
+
+					</td>
+					<td class="fit">
+						<div class="dropdown">
+							<a class="btn btn-outline-secondary btn-sm" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+								<i class="fas fa-ellipsis-h"></i>
+							</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="#">
+									<i class="fa fa-fw fa-folder-open"></i> Quản lý file
+								</a>
+								@if (item.IsActive)
+								{
+									<a class="dropdown-item" href="#">
+										<i class="fa fa-fw fa-toggle-off"></i> Tạm dừng trang web
+									</a>
+								}
+								else
+								{
+									<a class="dropdown-item" href="#">
+										<i class="fa fa-fw fa-toggle-on"></i> Kích hoạt trang web
+									</a>
+								}
+								@if (!item.IsTurnOnSSL)
+								{
+									<a class="dropdown-item" href="#">
+										<i class="fa fa-fw fa-lock"></i> Bật giao thức bảo mật (SSL)
+									</a>
+								}
+							</div>
+						</div>
+
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+	<partial name="_Pager" />
+</div>
+

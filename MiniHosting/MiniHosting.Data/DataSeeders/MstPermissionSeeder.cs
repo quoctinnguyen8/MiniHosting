@@ -162,6 +162,23 @@ namespace MiniHosting.Data.DataSeeders
 				}
 			);
 			#endregion
+
+			#region Data liên quan đến quản lý website
+			// Permission liên quan đến quản lý file
+			now = new DateTime(2023, 12, 1);
+			groupName = "Quản lý website";
+			builder.HasData(
+				new MstPermission
+				{
+					Id = AuthConst.AppUserWebsite.MANAGE_ALL_SITE,
+					Code = "MANAGER",
+					Table = "AppUserWebsite",
+					GroupName = groupName,
+					Desc = "Quản lý toàn bộ site",
+					CreatedDate = now
+				}
+			);
+			#endregion
 		}
 	}
 }

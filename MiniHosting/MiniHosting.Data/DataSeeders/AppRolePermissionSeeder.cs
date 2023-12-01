@@ -22,7 +22,8 @@ namespace MiniHosting.Data.DataSeeders
 			{
 				typeof(AuthConst.AppRole),
 				typeof(AuthConst.AppUser),
-				typeof(AuthConst.FileManager)
+				typeof(AuthConst.FileManager),
+				typeof(AuthConst.AppUserWebsite),
 			};
 
 

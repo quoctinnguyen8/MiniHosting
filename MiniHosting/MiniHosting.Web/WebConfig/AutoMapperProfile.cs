@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MiniHosting.Web.ViewModels.UserWebsite;
 
 namespace MiniHosting.Web.WebConfig
 {
@@ -57,6 +58,13 @@ namespace MiniHosting.Web.WebConfig
 			mapper.CreateMap<AppUser, RoleDeleteVM_User>();
 			// Map dữ liệu thuộc tính cha
 			mapper.CreateMap<AppRole, RoleDeleteVM>();
+		});
+
+		// Cấu hình mapping cho UserWebsiteController
+		public static MapperConfiguration UserWebsiteIndexConf = new(mapper =>
+		{
+			// Map dữ liệu từ kiểu AppRole sang RoleListItemVM
+			mapper.CreateMap<AppUserWebsite, WebsiteListItemVM>();
 		});
 	}
 }

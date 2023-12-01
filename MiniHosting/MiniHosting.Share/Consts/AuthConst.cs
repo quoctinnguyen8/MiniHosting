@@ -34,5 +34,10 @@ namespace MiniHosting.Share.Consts
 			public const int MANAGE_ALL_USER_FILES		= 1205;
 		}
 
+		public static class AppUserWebsite
+		{
+			public const int MANAGE_ALL_SITE			= 1301;
+		}
+
 	}
 }
