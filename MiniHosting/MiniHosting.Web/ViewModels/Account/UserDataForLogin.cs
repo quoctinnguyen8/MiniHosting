@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MiniHosting.Web.ViewModels.Account
 {
-	public class UserDataForApp
+	public class UserDataForLogin
 	{
 		public int Id { get; set; }
 		public string Username { get; set; }

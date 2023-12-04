@@ -26,6 +26,13 @@ namespace MiniHosting.Web.Components.MainNavBar
 				new MenuItem
 				{
 					Action = "Index",
+					Controller = "UserWebsite",
+					DisplayText = "Quản lý trang web",
+					Icon = "fa-atlas",
+				},
+				new MenuItem
+				{
+					Action = "Index",
 					Controller = "User",
 					DisplayText = "Quản lý tài khoản",
 					Icon = "fa-user-cog",

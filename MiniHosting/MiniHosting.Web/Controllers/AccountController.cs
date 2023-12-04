@@ -32,7 +32,7 @@ namespace MiniHosting.Web.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Login(LoginVM model)
 		{
-			var user = await _repository.GetOneAsync<AppUser, UserDataForApp>
+			var user = await _repository.GetOneAsync<AppUser, UserDataForLogin>
 							(
 								where: x => x.Username == model.Username.ToLower(),
 								AutoMapperProfile.LoginConf

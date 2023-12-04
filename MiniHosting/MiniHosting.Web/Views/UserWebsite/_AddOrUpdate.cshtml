@@ -1,0 +1,53 @@
+﻿@model MiniHosting.Web.ViewModels.UserWebsite.WebsiteAddOrUpdateVM
+
+
+<form asp-action="View">
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+	<input asp-for="Id" type="hidden" class="formcontrol" />
+	<div clas="form-group">
+		<label asp-for="SiteName" class="control-label"></label>
+		<input asp-for="SiteName" class="form-control" />
+		<span asp-validation-for="SiteName" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Description" class="control-label"></label>
+		<input asp-for="Description" class="form-control" />
+		<span asp-validation-for="Description" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label class="control-label">Loại mã nguồn</label>
+		<label class="control-label">
+			<input asp-for="SourceCodeType" type="radio" value="@SourceCodeType.CSHARP_NET5" class="form-control" />
+			.NET 5
+		</label>
+		<label class="control-label">
+			<input asp-for="SourceCodeType" type="radio" value="@SourceCodeType.CSHARP_NET7" class="form-control" />
+			.NET 7
+		</label>
+		<label class="control-label">
+			<input asp-for="SourceCodeType" type="radio" value="@SourceCodeType.PHP" class="form-control" />
+			PHP
+		</label>
+		<label class="control-label">
+			<input asp-for="SourceCodeType" type="radio" value="@SourceCodeType.HTML" class="form-control" />
+			Trang tĩnh (HTML)
+		</label>
+		<span asp-validation-for="SourceCodeType" class="text-danger"></span>
+	</div>
+	@if (User.IsInPermission(AuthConst.AppUserWebsite.MANAGE_ALL_SITE))
+	{
+		<div class="form-group">
+			<label asp-for="OwnerId" class="control-label"></label>
+			<input asp-for="OwnerId" class="form-control" />
+			<span asp-validation-for="OwnerId" class="text-danger"></span>
+		</div>
+	}
+	<div class="form-group">
+		<label asp-for="CSharpInternalPort" class="control-label"></label>
+		<input asp-for="CSharpInternalPort" class="form-control" />
+		<span asp-validation-for="CSharpInternalPort" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Create" class="btn btn-primary" />
+	</div>
+</form>

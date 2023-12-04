@@ -20,6 +20,9 @@ namespace MiniHosting.Web.WebConfig
 
 			// Map dữ liệu từ kiểu AppUser sang UserAddOrEditVM
 			CreateMap<AppUser, UserAddOrEditVM>();
+
+			CreateMap<AppUserWebsite, WebsiteAddOrUpdateVM>().ReverseMap();
+
 		}
 
 		public static MapperConfiguration RoleIndexConf = new (mapper =>
@@ -40,7 +43,7 @@ namespace MiniHosting.Web.WebConfig
 		public static MapperConfiguration LoginConf = new(mapper =>
 		{
 			// Map dữ liệu từ AppUser sang UserListItemVM, map thuộc tính RoleName
-			mapper.CreateMap<AppUser, UserDataForApp>()
+			mapper.CreateMap<AppUser, UserDataForLogin>()
 				.ForMember(uItem => uItem.RoleName, opts => opts.MapFrom(uEntity => uEntity.AppRole == null ? "" : uEntity.AppRole.Name))
 				.ForMember(uItem => uItem.Permission, opts => opts.MapFrom
 				(
